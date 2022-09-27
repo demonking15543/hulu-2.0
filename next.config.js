@@ -8,6 +8,6 @@ module.exports = nextConfig
 
 module.exports = {
   images:{
-    domains: ["links.papareact.com", "image.imdb.org"],
+    domains: ["links.papareact.com", "image.tmdb.org"],
   },
 }

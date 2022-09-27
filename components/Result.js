@@ -1,8 +1,16 @@
 import React from 'react'
+import Thumbnail from './Thumbnail';
 
-function Result() {
+function Result({results}) {
   return (
-    <div>Result</div>
+    <div>
+      {
+        results.map(result=>(
+          <Thumbnail key={result.id} result={result}/>
+        ))
+        
+      }
+    </div>
   )
 }
 export default Result;

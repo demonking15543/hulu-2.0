@@ -6,8 +6,7 @@ import Result from '../components/Result'
 import styles from '../styles/Home.module.css'
 import requests from '../utils/requests'
 
-export default function Home(props) {
-  console.log(props)
+export default function Home({ results }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +19,7 @@ export default function Home(props) {
       {/* Navbar */}
       <Nav/>
       {/* Result */}
-      <Result/>
+      <Result results={results} />
 
 
 
@@ -31,9 +30,8 @@ export default function Home(props) {
 
 export async function getServerSideProps(context){
   const gener = context.query.gener;
-  const request = await fetch(`https://www.themoviedb.org/3${
-    requests[gener]?.url || requests.fetchTrending.url }`
-    ).then(res => res)
+  //  const request = await fetch(`https://api.themoviedb.org/3/${requests.fetchTrending.url}`).then(res => res.json())
+  const request = await fetch(`https://api.themoviedb.org/3${requests[gener]?.url || requests.fetchTrending.url}`).then(res => res.json())
 
   return {
     props:{
